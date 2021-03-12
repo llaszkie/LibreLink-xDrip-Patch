@@ -15,91 +15,92 @@ MISSINGTOOL=0
 echo -en "${WHITE}  apksigner ... ${NORMAL}"
 which apksigner > /dev/null
 if [ $? = 0 ]; then
-  echo -e "${GREEN}gefunden.${NORMAL}"
+  echo -e "${GREEN}found.${NORMAL}"
 else
-  echo -e "${RED}nicht gefunden.${NORMAL}"
+  echo -e "${RED}not found.${NORMAL}"
   MISSINGTOOL=1
 fi
 echo -en "${WHITE}  apktool ... ${NORMAL}"
 if [ -x tools/apktool ]; then
-  echo -e "${GREEN}gefunden.${NORMAL}"
+  echo -e "${GREEN}found.${NORMAL}"
   APKTOOL=$(pwd)/tools/apktool
 else
   which apktool > /dev/null
   if [ $? = 0 ]; then
-    echo -e "${GREEN}gefunden.${NORMAL} Herkunft und Kompatibilität allerdings unbekannt."
+    echo -e "${GREEN}found.${NORMAL} Origin and compatibility unknown
+."
     APKTOOL=$(which apktool)
   else
-    echo -e "${RED}nicht gefunden.${NORMAL}"
+    echo -e "${RED}nicht found.${NORMAL}"
     MISSINGTOOL=1
   fi
 fi
 echo -en "${WHITE}  git ... ${NORMAL}"
 which git > /dev/null
 if [ $? = 0 ]; then
-  echo -e "${GREEN}gefunden.${NORMAL}"
+  echo -e "${GREEN}found.${NORMAL}"
 else
-  echo -e "${RED}nicht gefunden.${NORMAL}"
+  echo -e "${RED}not found.${NORMAL}"
   MISSINGTOOL=1
 fi
 echo -en "${WHITE}  keytool ... ${NORMAL}"
 which keytool > /dev/null
 if [ $? = 0 ]; then
-  echo -e "${GREEN}gefunden.${NORMAL}"
+  echo -e "${GREEN}found.${NORMAL}"
 else
-  echo -e "${RED}nicht gefunden.${NORMAL}"
+  echo -e "${RED}nicht found.${NORMAL}"
   MISSINGTOOL=1
 fi
 echo -en "${WHITE}  zipalign ... ${NORMAL}"
 which zipalign > /dev/null
 if [ $? = 0 ]; then
-  echo -e "${GREEN}gefunden.${NORMAL}"
+  echo -e "${GREEN}found.${NORMAL}"
 else
-  echo -e "${RED}nicht gefunden.${NORMAL}"
+  echo -e "${RED}not found.${NORMAL}"
   MISSINGTOOL=1
 fi
 echo
 if [ ${MISSINGTOOL} = 1 ]; then
-  echo -e "${YELLOW}=> Bitte installieren Sie die benötigten Tools.${NORMAL}"
+  echo -e "${YELLOW}=> Please install the necessary tools.${NORMAL}"
   exit 1
 fi
 
-echo -e "${WHITE}Suche APK Datei '${FILENAME}.apk' ...${NORMAL}"
+echo -e "${WHITE} APK File '${FILENAME}.apk' ...${NORMAL}"
 if [ -e APK/${FILENAME}.apk ]; then
-  echo -e "${GREEN}  gefunden.${NORMAL}"
+  echo -e "${GREEN}  found.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht gefunden.${NORMAL}"
+  echo -e "${RED}  Not found.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte laden Sie die original APK Datei von https://www.apkmonk.com/download-app/com.freestylelibre.app.de/5_com.freestylelibre.app.de_2019-04-22.apk/ herunter und legen Sie sie im Verzeichnis APK/ ab.${NORMAL}"
+  echo -e "${YELLOW}=> Please download the original file from https://www.apkmonk.com/download-app/com.freestylelibre.app.de/5_com.freestylelibre.app.de_2019-04-22.apk/ herunter und legen Sie sie im Verzeichnis APK/ ab.${NORMAL}"
   exit 1
 fi
 
-echo -e "${WHITE}Prüfe MD5 Summe der APK Datei ...${NORMAL}"
+echo -e "${WHITE}MD5 checksum ...${NORMAL}"
 md5sum -c APK/${FILENAME}.apk.md5 > /dev/null 2>&1
 if [ $? = 0 ]; then
-  echo -e "${GREEN}  okay.${NORMAL}"
+  echo -e "${GREEN}  Done.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht okay.${NORMAL}"
+  echo -e "${RED}  Not done.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte laden Sie die korrekte, unverfälschte original APK herunter.${NORMAL}"
+  echo -e "${YELLOW}=> Please download the correct, genuine original APK.${NORMAL}"
   exit 1
 fi
 
-echo -e "${WHITE}Enpacke original APK Datei ...${NORMAL}"
+echo -e "${WHITE}Unpack original APK file ...${NORMAL}"
 ${APKTOOL} d -o /tmp/librelink APK/${FILENAME}.apk
 if [ $? = 0 ]; then
-  echo -e "${GREEN}  okay.${NORMAL}"
+  echo -e "${GREEN}  Done.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht okay.${NORMAL}"
+  echo -e "${RED}  Not done.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte prüfen Sie o.a. Fehler.${NORMAL}"
+  echo -e "${YELLOW}=> Please check O.A. errors.${NORMAL}"
   exit 1
 fi
 
-echo -e "${WHITE}Patche original App ...${NORMAL}"
+echo -e "${WHITE}Patch original App ...${NORMAL}"
 
 cat <<EOF
 
@@ -125,7 +126,7 @@ while true ; do
             appmode=Online
             break;;
         * )
-            echo "${RED}Bitte answer with yes or no!${NORMAL}";;
+            echo "${RED}Please answer with yes or no!${NORMAL}";;
     esac
 done
 
