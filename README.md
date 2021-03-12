@@ -20,19 +20,28 @@ Another GitHub user added a German guide and a few scripts to the original versi
 
 **Already activated sensors will also stop sending alarms to the handset device if they had been activated with the unpatched phone app.**
 
-How to build the LL_Patched_v2 apk (With coptional connection to Libreview account)
+**How to build the LL_Patched_v2 apk (With coptional connection to Libreview account)
 
-sudo apt-get update [sudo] password for *******:
-sudo apt-get install git 
-Do you want to continue? [Y/n] y
-git clone https://github.com/wbrettw/LibreLink-xdrip-patch
-cd LibreLink-xdrip-patch
-./install-apt-dependencies.sh 
-Do you want to continue? [Y/n] y
-./download.sh
-./patch.sh 
-(Deactivate online Functionality ? [Y/n] N
+**sudo apt-get update [sudo] password for *******:
+
+**sudo apt-get install git
+ 
+**Do you want to continue? [Y/n] y
+
+**git clone https://github.com/wbrettw/LibreLink-xdrip-patch
+
+**cd LibreLink-xdrip-patch
+
+**./install-apt-dependencies.sh
+ 
+**Do you want to continue? [Y/n] y
+
+**./download.sh
+
+**./patch.sh
+ 
+**(Deactivate online Functionality ? [Y/n] N
 
 
-Finished! The patched and signed APK file can be found at APK/"com.freestylelibre.app.de_2019-04-22_patched.apk" in your home folder. You can rename it to "Librelink_patched_v2.apk"
+**Finished! The patched and signed APK file can be found at APK/"com.freestylelibre.app.de_2019-04-22_patched.apk" in your home folder. You can rename it to "Librelink_patched_v2.apk"
 
