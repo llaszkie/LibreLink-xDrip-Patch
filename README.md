@@ -22,19 +22,17 @@ Another GitHub user added a German guide and a few scripts to the original versi
 
 How to build the LL_Patched_v2 apk (With coptional connection to Libreview account)
 
-*******@T440p:~$ sudo apt-get update [sudo] password for *******:
-*******@T440p:~$ sudo apt-get install git Do you want to continue? [Y/n] y
-*******@T440p:~$ git clone https://github.com/wbrettw/LibreLink-xdrip-patch
-*******@T440p:~$ cd LibreLink-xdrip-patch
-*******@T440p:~/LibreLink-xdrip-patch$ ./install-apt-dependencies.sh Do you want to continue? [Y/n] y
-*******@T440p:~/LibreLink-xdrip-patch$ ./download.sh
-*******@T440p:~/LibreLink-xdrip-patch$ ./patch.sh (Deactivate online Functionality ? [Y/n] N
+sudo apt-get update [sudo] password for *******:
+sudo apt-get install git 
+Do you want to continue? [Y/n] y
+git clone https://github.com/wbrettw/LibreLink-xdrip-patch
+cd LibreLink-xdrip-patch
+./install-apt-dependencies.sh 
+Do you want to continue? [Y/n] y
+./download.sh
+./patch.sh 
+(Deactivate online Functionality ? [Y/n] N
 
 
 Finished! The patched and signed APK file can be found at APK/"com.freestylelibre.app.de_2019-04-22_patched.apk" in your home folder. You can rename it to "Librelink_patched_v2.apk"
 
-*******@T440p:~/LibreLink-xdrip-patch$
-
-
-
-If all Steps where succesfully executed, you will have now a patched librelink app, capable of sending its data to [xDrip](https://github.com/jamorham/xDrip-plus).
