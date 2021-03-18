@@ -16,17 +16,27 @@ IF YOU WANT TO USE THIS, YOU NEED TO ACTIVATE A NEW SENSOR, IT WILL NOT WORK WIT
 **sudo apt-get update 
 
 **[sudo] password for *******:
+
 **sudo apt-get install git
+
 **Do you want to continue? [Y/n] y
+
 **git clone https://github.com/wbrettw/LibreLink-xdrip-patch
+
 **cd LibreLink-xdrip-patch
+
 **./install-apt-dependencies.sh
+
 **Do you want to continue? [Y/n] y
+
 **./download.sh
+
 **./patch.sh
+
 **(Deactivate online Functionality? [Y/n] N
 
 N will allow Librelink to send data to a Libreview account.
 Y will block the functionality.
+
 **Finished! The patched and signed APK file can be found at APK/"com.freestylelibre.app.de_2019-04-22_patched.apk" in your home folder. You can rename it to "Librelink_patched_v2.apk"
 
