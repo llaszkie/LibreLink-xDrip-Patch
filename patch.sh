@@ -253,7 +253,7 @@ if [ -d /mnt/c/ ]; then
   if [ $? = 0 ]; then
     echo -e "${GREEN}  Done.${NORMAL}"
     echo
-  echo -en "${YELLOW}Finished! The patched and signed APK file can be found at C:Users/Your username/Librelink-Xdrip-Patched/APK"
+  echo -en "${GREEN}Finished! The patched and signed APK file can be found at Home/Librelink-Xdrip-Patch/APK"
   echo -en "\\"
   echo -e "${FILENAME}_patched.apk${NORMAL}"
   else
@@ -263,7 +263,7 @@ if [ -d /mnt/c/ ]; then
     exit 1
   fi
 else
-  echo -e "${YELLOW}Finished ! the signed and patched file can be found at APK/${FILENAME}_patched.apk${NORMAL}"
+  echo -e "${GREEN}Finished ! the signed and patched file can be found at Home/Librelink-Xdrip-Patch/APK/${FILENAME}_patched.apk${NORMAL}"
 fi
 
 echo -en "${GREEN} The patched app runs in the ${appmode}-Modus"
