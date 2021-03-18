@@ -14,34 +14,34 @@ FILENAME='com.freestylelibre.app.de_2019-04-22'
 touch ~/.wget-hsts
 chmod 644 ~/.wget-hsts
 
-echo -e "${WHITE}Lade original APK herunter ...${NORMAL}"
+echo -e "${WHITE}Download the original APK ...${NORMAL}"
 wget -O APK/apkpure.html --keep-session-cookies --save-cookies cookies.txt https://apkpure.com/de/freestyle-librelink-de/com.freestylelibre.app.de/download/4751-APK
 URL=$(grep "hier klicken" APK/apkpure.html | sed 's#^.*https://##' | sed 's/">.*//')
 wget -O APK/${FILENAME}.apk --load-cookies cookies.txt https://${URL}
 if [ $? = 0 ]; then
-  echo -e "${GREEN}  okay.${NORMAL}"
+  echo -e "${GREEN}  Done.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht okay.${NORMAL}"
+  echo -e "${RED}  Error.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte prüfen Sie o.a. Fehler.${NORMAL}"
+  echo -e "${YELLOW}=> Please check the above errors.${NORMAL}"
   exit 1
 fi
 rm cookies.txt
 rm APK/apkpure.html
 
-echo -e "${WHITE}Lade 'apktool' herunter ...${NORMAL}"
-echo "Info: Debian liefert eine nicht ohne weiteres funktionierende 'dirty'-Version mit. Daher der externe Download."
+echo -e "${WHITE}Download 'apktool' ...${NORMAL}"
+echo "Info: Debian provides a 'dirty' version that does not work. Hence the external download."
 mkdir -p tools
 wget -q -O tools/apktool https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
 chmod 755 tools/apktool
 wget -q -O tools/apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.0.jar
 if [ $? = 0 ]; then
-  echo -e "${GREEN}  okay.${NORMAL}"
+  echo -e "${GREEN}  Done.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht okay.${NORMAL}"
+  echo -e "${RED}  Error.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte prüfen Sie o.a. Fehler.${NORMAL}"
+  echo -e "${YELLOW}=> Please check the above errors.${NORMAL}"
   exit 1
 fi
