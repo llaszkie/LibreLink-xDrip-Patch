@@ -10,14 +10,14 @@ YELLOW='\033[1;33m'
 WORKDIR=$(pwd)
 FILENAME='com.freestylelibre.app.de_2019-04-22'
 
-echo -e "${WHITE}Installiere benötigte Tools ...${NORMAL}"
+echo -e "${WHITE}Install the tools you need ...${NORMAL}"
 sudo apt-get install git wget apksigner zipalign android-framework-res
 if [ $? = 0 ]; then
   echo -e "${GREEN}  okay.${NORMAL}"
   echo
 else
-  echo -e "${RED}  nicht okay.${NORMAL}"
+  echo -e "${RED}  not okay.${NORMAL}"
   echo
-  echo -e "${YELLOW}=> Bitte prüfen Sie o.a. Fehler.${NORMAL}"
+  echo -e "${YELLOW}=> Please check the above errors.${NORMAL}"
   exit 1
 fi
