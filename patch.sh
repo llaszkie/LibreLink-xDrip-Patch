@@ -48,7 +48,7 @@ which keytool > /dev/null
 if [ $? = 0 ]; then
   echo -e "${GREEN}found.${NORMAL}"
 else
-  echo -e "${RED}nicht found.${NORMAL}"
+  echo -e "${RED}not found.${NORMAL}"
   MISSINGTOOL=1
 fi
 echo -en "${WHITE}  zipalign ... ${NORMAL}"
