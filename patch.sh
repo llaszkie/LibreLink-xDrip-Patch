@@ -195,7 +195,7 @@ else
   exit 1
 fi
 
-echo -e "${WHITE}Räume /tmp/ on ...${NORMAL}"
+echo -e "${WHITE}Spaces /tmp/ on ...${NORMAL}"
 cd ${WORKDIR}
 rm -rf /tmp/librelink/
 echo -e "${GREEN}  Done."
