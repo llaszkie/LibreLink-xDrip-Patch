@@ -202,7 +202,7 @@ echo -e "${GREEN}  Done."
 echo
 
 echo -e "${WHITE}Optimize alignment of patched APK file ...${NORMAL}"
-zipalign -p 4 APK/librelink_unaligned.apk APK/${FILENAME}_patched.apk
+zipalign -f -p 4 APK/librelink_unaligned.apk APK/${FILENAME}_patched.apk
 if [ $? = 0 ]; then
   echo -e "${GREEN}  Done.${NORMAL}"
   echo
